@@ -6,6 +6,7 @@ import CenteredGrid from "./components/layout"
 function App() {
   return (
     <div className="App">
+      <h1>THIS IS MY TODO APP</h1>
       <CenteredGrid/>
     </div>
   );
