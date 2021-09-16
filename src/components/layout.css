@@ -1,0 +1,21 @@
+.task{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.button{
+  width: 90px;
+  height:30px;
+  text-align: center;
+  align-items: center;
+  margin-top:8%;
+  cursor: pointer;
+}
+
+.item{
+  cursor: pointer;
+}
+
+.item:hover{
+  background-color: red;
+}
