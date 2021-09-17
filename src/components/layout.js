@@ -50,12 +50,23 @@ export default function CenteredGrid() {
     setTasklist([])
   }
 
+  const clearCompleted = () => {
+    setCompleted([])
+  }
+
   const deletetask = (task) => {
     let array = tasklist
     let index = array.indexOf(task)
     console.log(array)
     console.log(array.splice(index, 1))
     console.log(array)
+    setTasklist([...array])
+  }
+
+  const moveUp = (task) => {
+    let array = tasklist
+    let index = array.indexOf(task, 1)
+    array.unshift([task])
     setTasklist([...array])
   }
 
@@ -71,32 +82,41 @@ console.log("TASKLIST", tasklist)
             tasklist.map(task => {
             return(
               <div className="task">
-              <Tooltip title="Move Task to Completed">
-              <div className="item" onClick={(event) => handleClick(task)}>
-              <h2>{task}</h2>
-              </div>
-              </Tooltip>
-              <Tooltip title="Delete task">
-              <DeleteIcon className="button" onClick={(event) => deletetask(task)}/>
-              </Tooltip>
+                <Tooltip title="Move Task to Completed">
+                  <div className="item" onClick={(event) => handleClick(task)}>
+                  <h2>{task}</h2>
+                </div>
+                </Tooltip>
+                <Tooltip title="Edit">
+                <button className="button2">Edit</button>
+                </Tooltip>
+                <Tooltip title="Move to top">
+                <button className="button2" onClick={(event) => moveUp(task)}>Move Up</button>
+                </Tooltip>
+                <Tooltip title="Delete task">
+                <DeleteIcon className="button" onClick={(event) => deletetask(task)}/>
+                </Tooltip>
               </div>
             )
           })
         }
           </Paper>
-          <button onClick={(event) => clear()}>CLEAR PENDING TASKS</button>
-        </Grid>
-        <Grid item xs={6}>
-          <h1>COMPLETED</h1>
-          <Paper style={{height:"300px"}} className={classes.paper}>
+            <button onClick={(event) => clear()}>CLEAR PENDING TASKS</button>
+            </Grid>
+            <Grid item xs={6}>
+            <h1>COMPLETED</h1>
+            <div className="column">
+            <Paper style={{height:"300px"}} className={classes.paper}>
             {
               completed.map(task => {
                 return (
-                  <h2>{task}</h2>
+                  <h2 className="task">{task}</h2>
                 )
               })
             }
           </Paper>
+          </div>
+          <button onClick={(event) => clearCompleted()}>CLEAR COMPLETED TASKS</button>
         </Grid>
       </Grid>
     </div>
