@@ -62,6 +62,7 @@ export default function CenteredGrid() {
 console.log("TASKLIST", tasklist)
   return (
     <div className={classes.root}>
+
       <BasicTextFields handleInput={handleInput}/>
       <Grid container spacing={3}>
         <Grid item xs={6}>
