@@ -64,9 +64,11 @@ export default function CenteredGrid() {
   }
 
   const moveUp = (task) => {
-    let array = tasklist
-    let index = array.indexOf(task, 1)
-    array.unshift([task])
+    let array = [...tasklist]
+    const index = array.indexOf(task)
+    console.log(index)
+    array.unshift(task)
+    array.splice(index + 1, 1)
     setTasklist([...array])
   }
 
