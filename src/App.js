@@ -7,6 +7,7 @@ import Home from "./components/home"
 import About from "./components/about"
 import News from "./components/news"
 import Contact from "./components/contact"
+import Fetch from "./components/fetch"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <About/>
       <News/>
       <Contact/>
+      <Fetch/>
     </div>
   );
 }
